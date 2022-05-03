@@ -4,6 +4,7 @@ Create Time: 2022/5/3 12:31
 Author: Lison Song
 source code : Ranjith
 sourcecode URL: https://codingdeekshi.com/python-3-tkinter-ffmpeg-script-to-transcode-and-compress-videos-to-gif-or-avi-gui-desktop-app/
+
 """
 debug = False
 debug_output = False
