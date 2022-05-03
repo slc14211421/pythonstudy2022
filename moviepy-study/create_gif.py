@@ -3,13 +3,15 @@
 Create Time: 2022/5/3 0:48
 Author: Lison Song
 """
-from conf import SAMPLE_INPUTS, SAMPLE_OUTPUTS
+from conf import DATA_INPUTS, DATA_OUTPUTS
 from moviepy.editor import *  # ImageClip
 from datetime import datetime
+from moviepy_process_callback import MyBarLogger
+import os
 
-source_path = os.path.join(SAMPLE_INPUTS, 'video1.mp4')
+source_path = os.path.join(DATA_INPUTS, 'video1.mp4')
 
-GIF_DIR = os.path.join(SAMPLE_OUTPUTS, "gifs")
+GIF_DIR = os.path.join(DATA_OUTPUTS, "gifs")
 os.makedirs(GIF_DIR, exist_ok=True)
 '''
 my_clip = VideoFileClip("some_file.mp4")
@@ -19,12 +21,13 @@ my_new_clip = my_clip.set_start(t=5) #这样才对。moviepy中，修改过的cl
 
 
 def create_gif(video_path, gif_path, startT=0, endT=5, is_resize=True, size_width=720, size_height=405, fps=5):
+    mylog=MyBarLogger("CHS-GIF-T00000001")
     starttime = datetime.now()
     clip = VideoFileClip(video_path)
     subclip = clip.subclip(startT, endT)
     if is_resize:
         subclip = subclip.resize(width=size_width, height=size_height)
-    subclip.write_gif(gif_path, fps=fps, program='ffmpeg')
+    subclip.write_gif(gif_path, fps=fps, program='ffmpeg', logger=mylog)
     endtime = datetime.now()
     print(f"Program create_gif takes {(endtime - starttime).seconds} seconds to run ")
 

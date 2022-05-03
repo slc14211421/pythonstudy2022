@@ -4,7 +4,7 @@ Create Time: 2022/5/3 2:41
 Author: Lison Song
 """
 import os
-from conf import SAMPLE_INPUTS, SAMPLE_OUTPUTS
+from conf import DATA_INPUTS, DATA_OUTPUTS
 from moviepy.editor import *  # ImageClip
 from proglog import ProgressBarLogger
 from math import floor
@@ -61,8 +61,8 @@ class MyBarLogger(ProgressBarLogger):
 
 
 if __name__ == '__main__':
-    source_video = os.path.join(SAMPLE_INPUTS, 'video1.mp4')
-    # video_2segment(source_video, os.path.join(SAMPLE_OUTPUTS, 'segment1.mp4'), startT=0, endT=5)
-    video_2segment(source_video, os.path.join(SAMPLE_OUTPUTS, 'segment2.mp4'), startT=6, endT=10, taskid='CHS1000001')
-    # video_2segment(source_video, os.path.join(SAMPLE_OUTPUTS, 'segment3.mp4'), startT=11, endT=15)
-    # video_2segment(source_video, os.path.join(SAMPLE_OUTPUTS, 'segment4.mp4'), startT=16, endT=20)
+    source_video = os.path.join(DATA_INPUTS, 'video1.mp4')
+    # video_2segment(source_video, os.path.join(DATA_OUTPUTS, 'segment1.mp4'), startT=0, endT=5)
+    video_2segment(source_video, os.path.join(DATA_OUTPUTS, 'segment2.mp4'), startT=6, endT=10, taskid='CHS1000001')
+    # video_2segment(source_video, os.path.join(DATA_OUTPUTS, 'segment3.mp4'), startT=11, endT=15)
+    # video_2segment(source_video, os.path.join(DATA_OUTPUTS, 'segment4.mp4'), startT=16, endT=20)

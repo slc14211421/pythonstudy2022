@@ -9,16 +9,14 @@ Author: Lison Song
    
  
 '''
-from conf import SAMPLE_INPUTS, SAMPLE_OUTPUTS
+from conf import DATA_INPUTS, DATA_OUTPUTS
 import os
 from tkinter import *
 from tkvideo import tkvideo
 
 
-
-
 if __name__ == '__main__':
-    source_path = os.path.join(SAMPLE_INPUTS, 'video1.mp4')
+    source_path = os.path.join(DATA_INPUTS, 'video1.mp4')
     #create instance for window
     root = Tk()
     #set window title

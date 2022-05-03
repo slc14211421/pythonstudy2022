@@ -9,15 +9,15 @@ import os
 import subprocess
 import uuid
 
-from conf import SAMPLE_INPUTS, SAMPLE_OUTPUTS
+from conf import DATA_INPUTS, DATA_OUTPUTS
 from moviepy.editor import *
 from PIL import Image
 from datetime import datetime
 
-source_path = os.path.join(SAMPLE_INPUTS, 'video1.mp4')
-thumbnail_dir = os.path.join(SAMPLE_OUTPUTS, "thumbnails")
-thumbnail_per_frame_dir = os.path.join(SAMPLE_OUTPUTS, "thumbnails-per-frame")
-thumbnail_per_half_second_dir = os.path.join(SAMPLE_OUTPUTS, "thumbnails-per-half-second")
+source_path = os.path.join(DATA_INPUTS, 'video1.mp4')
+thumbnail_dir = os.path.join(DATA_OUTPUTS, "thumbnails")
+thumbnail_per_frame_dir = os.path.join(DATA_OUTPUTS, "thumbnails-per-frame")
+thumbnail_per_half_second_dir = os.path.join(DATA_OUTPUTS, "thumbnails-per-half-second")
 
 os.makedirs(thumbnail_dir, exist_ok=True)
 os.makedirs(thumbnail_per_frame_dir, exist_ok=True)

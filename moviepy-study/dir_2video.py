@@ -3,7 +3,7 @@
 Create Time: 2022/5/3 1:49
 Author: Lison Song
 """
-from conf import SAMPLE_INPUTS, SAMPLE_OUTPUTS
+from conf import DATA_INPUTS, DATA_OUTPUTS
 from moviepy.editor import *  # ImageClip
 from PIL import Image
 
@@ -59,10 +59,10 @@ def dir_2video_per_frame(thumbnail_dir, output_video):
 
 
 if __name__ == '__main__':
-    thumbnail_dir = os.path.join(os.path.join(SAMPLE_OUTPUTS, "thumbnails"), '71d4e1b1-ca40-11ec-9e28-00e04ce10c56')
-    output_video = os.path.join(SAMPLE_OUTPUTS, 'thumbs_per_second.mp4')
+    thumbnail_dir = os.path.join(os.path.join(DATA_OUTPUTS, "thumbnails"), '71d4e1b1-ca40-11ec-9e28-00e04ce10c56')
+    output_video = os.path.join(DATA_OUTPUTS, 'thumbs_per_second.mp4')
     # dir_video_per_second(thumbnail_dir, output_video)
 
-    thumbnail_per_frame_dir = os.path.join(SAMPLE_OUTPUTS, "thumbnails-per-frame")
-    output_video2 = os.path.join(SAMPLE_OUTPUTS, 'thumbs_per_frame.mp4')
+    thumbnail_per_frame_dir = os.path.join(DATA_OUTPUTS, "thumbnails-per-frame")
+    output_video2 = os.path.join(DATA_OUTPUTS, 'thumbs_per_frame.mp4')
     dir_2video_per_frame(thumbnail_per_frame_dir, output_video2)

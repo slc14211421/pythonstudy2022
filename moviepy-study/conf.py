@@ -8,9 +8,11 @@ import os
 ABS_PATH = os.path.abspath(__file__)
 BASE_DIR = os.path.dirname(ABS_PATH)
 DATA_DIR = os.path.join(BASE_DIR, "data")
-SAMPLE_DIR = os.path.join(DATA_DIR, "samples")
-SAMPLE_INPUTS = os.path.join(DATA_DIR, "input")
-SAMPLE_OUTPUTS = os.path.join(DATA_DIR, 'output')
+DATA_INPUTS = os.path.join(DATA_DIR, "input")
+DATA_OUTPUTS = os.path.join(DATA_DIR, 'output')
+os.makedirs(DATA_DIR, exist_ok=True)
+os.makedirs(DATA_INPUTS, exist_ok=True)
+os.makedirs(DATA_OUTPUTS, exist_ok=True)
 
 if __name__ == '__main__':
-    print(SAMPLE_DIR, SAMPLE_INPUTS, SAMPLE_OUTPUTS)
+    print(DATA_INPUTS, DATA_OUTPUTS)
