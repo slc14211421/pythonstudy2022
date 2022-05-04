@@ -76,9 +76,13 @@ def moveLetters(letters, funcpos):
             for i, letter in enumerate(letters)]
 
 
+# clips = [CompositeVideoClip(moveLetters(letters, funcpos),
+#                             size=screensize).subclip(0, 5)
+#          for funcpos in [vortex, cascade, arrive, vortexout]]
+
 clips = [CompositeVideoClip(moveLetters(letters, funcpos),
                             size=screensize).subclip(0, 5)
-         for funcpos in [vortex, cascade, arrive, vortexout]]
+         for funcpos in [cascade, vortexout]]
 
 # 连接，写入文件
 output_dir = os.path.join(DATA_OUTPUTS, 'cool_fonts')
@@ -86,3 +90,9 @@ os.makedirs(output_dir, exist_ok=True)
 output_file = os.path.join(output_dir, 'chsvision-Candara-Bold-Italic.mp4')
 final_clip = concatenate_videoclips(clips)
 final_clip.write_videofile(output_file, fps=25, codec='mpeg4')
+# 保存视频前可以先预览
+# 方式一 没有进度条
+# final_clip.preview(fps=25)
+#
+# 方式二  ipython_display(my_video_clip)  Only works inside an IPython Notebook
+# ipython_display(final_clip)

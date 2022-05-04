@@ -10,7 +10,12 @@ from proglog import ProgressBarLogger
 from math import floor
 
 def video_2segment(source_video, save_path, startT, endT, taskid=None):
+
     '''
+    很多方法都接受时间参数，clip.subclip(tstart,tend)，截取两个时间点之间的 clip 片段，在这个方法中，时间既可以用(tstart=230.54),以秒的时间来表示，
+    也可以用(tstart=(3,50.54))，以 3 分 50.54 秒的形式来表示，还可以 (tstart=(0,3,50.54))或者 (tstart=(00:03:50.54)),以，小时，分钟，秒的形式老表示。
+    大多数没有赋值的时间参数会有一个默认值，比如 clip.subclip(tstart=50)，tend 的默认值就是视频的长度，clip.subclip(tend=50)，那么 tstart 就默认为 0.
+    当时间是负数的时候，代表倒数 n 秒。比如，clip.subclip(-20, -10)会截取倒数 20 秒到倒数 10 秒之间的片段。
     视频切片程序
     暂时省略 参数验证部分
     :param source_video:
