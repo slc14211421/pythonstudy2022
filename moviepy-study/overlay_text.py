@@ -57,5 +57,5 @@ overlay_clip = overlay_clip.set_audio(og_audio)
 
 # final_clip = concatenate_videoclips([intro_text, overlay_clip])
 final_clip = CompositeVideoClip([intro_text,
-                                 overlay_clip.set_start(5).crossfadein(2)])
+                                 overlay_clip.set_start(5).crossfadein(2)], size=video_clip.size)
 final_clip.write_videofile(final_video_path, codec='libx264', audio_codec="aac")
