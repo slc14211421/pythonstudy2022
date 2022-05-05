@@ -7,13 +7,16 @@ import weather
 from PyQt5.QtWidgets import QApplication, QDialog
 import requests
 import pandas as pd
-
+from conf import CITY_CODE_FILE, PROVINCE_LIST
+from common_tools import get_city_by_province
 
 class MainDialog(QDialog):
     def __init__(self, parent=None):
         super(QDialog, self).__init__(parent)
         self.ui = weather.Ui_weather()
         self.ui.setupUi(self)
+        self.init_province()
+
 
     def queryWeather(self):
         cityName = self.ui.comboBox_select_city.currentText()
@@ -40,20 +43,23 @@ class MainDialog(QDialog):
 
         self.ui.textEdit_result.setText(weatherMsg)
 
-    def getCode(self, cityName):
-        cityDict = {"北京": "101010100",
-                    "上海": "101020100",
-                    "天津": "101030100",
-                    "徐州": "101190801",
-                    "乌鲁木齐": "101130101"}
+    def onchange_city_comboBox(self):
+        province_name = self.ui.comboBox_province.currentText()
+        # print(province_name)
+        if province_name != '请选择':
+            city_list = get_city_by_province(province_name)
+            # print(city_list)
+            self.ui.comboBox_select_city.clear()
+            self.ui.comboBox_select_city.addItems(city_list)
 
-        return cityDict.get(cityName)
+    def init_province(self):
+        self.ui.comboBox_province.addItems(PROVINCE_LIST)
 
     def search_city_code(self, city_name):
         # print(city_name)
         city_code = '-1'
         try:
-            df = pd.read_json('city_code.json')
+            df = pd.read_json(CITY_CODE_FILE)
             for row in df.values:
                 # print(row)
                 row_data = row[0]
@@ -77,4 +83,5 @@ if __name__ == '__main__':
     myapp = QApplication(sys.argv)
     myDlg = MainDialog()
     myDlg.show()
+
     sys.exit(myapp.exec_())
