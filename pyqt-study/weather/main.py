@@ -27,7 +27,7 @@ class MainDialog(QDialog):
         print(r.json())
 
         if r.json().get('status') == 200:
-            weatherMsg = '城市：{}\n日期：{}\n天气：{}\nPM 2.5：{} {}\n温度：{}\n湿度：{}\n风力：{}\n\n{}'.format(
+            weatherMsg_today = '城市：{}\n日期：{}\n天气：{}\nPM 2.5：{} {}\n温度：{}\n湿度：{}\n风力：{}\n{}'.format(
                 r.json()['cityInfo']['city'],
                 r.json()['data']['forecast'][0]['ymd'],
                 r.json()['data']['forecast'][0]['type'],
@@ -38,6 +38,25 @@ class MainDialog(QDialog):
                 r.json()['data']['forecast'][0]['fl'],
                 r.json()['data']['forecast'][0]['notice'],
             )
+            weatherMsg_t1 = '\n日期：{}\n天气：{}\n温度：{}-{}\n风：{} {}\n{}'.format(
+                r.json()['data']['forecast'][1]['ymd'],
+                r.json()['data']['forecast'][1]['type'],
+                r.json()['data']['forecast'][1]['low'],
+                r.json()['data']['forecast'][1]['high'],
+                r.json()['data']['forecast'][1]['fx'],
+                r.json()['data']['forecast'][1]['fl'],
+                r.json()['data']['forecast'][1]['notice'],
+            )
+            weatherMsg_t2 = '\n日期：{}\n天气：{}\n温度：{}-{}\n风：{} {}\n{}'.format(
+                r.json()['data']['forecast'][2]['ymd'],
+                r.json()['data']['forecast'][2]['type'],
+                r.json()['data']['forecast'][2]['low'],
+                r.json()['data']['forecast'][2]['high'],
+                r.json()['data']['forecast'][2]['fx'],
+                r.json()['data']['forecast'][2]['fl'],
+                r.json()['data']['forecast'][2]['notice'],
+            )
+            weatherMsg = weatherMsg_today + weatherMsg_t1 + weatherMsg_t2
         else:
             weatherMsg = '天气查询失败，请稍后再试！'
 
