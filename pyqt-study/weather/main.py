@@ -10,13 +10,13 @@ import pandas as pd
 from conf import CITY_CODE_FILE, PROVINCE_LIST
 from common_tools import get_city_by_province
 
+
 class MainDialog(QDialog):
     def __init__(self, parent=None):
         super(QDialog, self).__init__(parent)
         self.ui = weather.Ui_weather()
         self.ui.setupUi(self)
         self.init_province()
-
 
     def queryWeather(self):
         cityName = self.ui.comboBox_select_city.currentText()
