@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'weather.ui'
+# Form implementation generated from reading ui file 'weather-textBrowser.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_weather(object):
     def setupUi(self, weather):
         weather.setObjectName("weather")
-        weather.resize(511, 535)
+        weather.resize(511, 494)
         font = QtGui.QFont()
         font.setFamily("Adobe Arabic")
         font.setPointSize(14)
@@ -24,7 +24,7 @@ class Ui_weather(object):
         font = QtGui.QFont()
         font.setFamily("Adobe Arabic")
         font.setPointSize(14)
-        # font.setBold(True)
+        font.setBold(True)
         font.setWeight(75)
         self.select_city_label.setFont(font)
         self.select_city_label.setObjectName("select_city_label")
@@ -33,7 +33,7 @@ class Ui_weather(object):
         font = QtGui.QFont()
         font.setFamily("Adobe Arabic")
         font.setPointSize(14)
-        # font.setBold(True)
+        font.setBold(True)
         font.setWeight(60)
         self.comboBox_select_city.setFont(font)
         self.comboBox_select_city.setObjectName("comboBox_select_city")
@@ -45,26 +45,26 @@ class Ui_weather(object):
         self.pushButton_clear = QtWidgets.QPushButton(weather)
         self.pushButton_clear.setGeometry(QtCore.QRect(280, 420, 81, 41))
         self.pushButton_clear.setObjectName("pushButton_clear")
-        self.textEdit_result = QtWidgets.QTextEdit(weather)
-        self.textEdit_result.setGeometry(QtCore.QRect(40, 90, 431, 301))
-        self.textEdit_result.setAutoFillBackground(False)
-        self.textEdit_result.setObjectName("textEdit_result")
         self.label_province = QtWidgets.QLabel(weather)
         self.label_province.setGeometry(QtCore.QRect(40, 42, 61, 20))
         font = QtGui.QFont()
         font.setFamily("Adobe Arabic")
         font.setPointSize(14)
-        # font.setBold(True)
+        font.setBold(True)
         font.setWeight(75)
         self.label_province.setFont(font)
         self.label_province.setObjectName("label_province")
         self.comboBox_province = QtWidgets.QComboBox(weather)
         self.comboBox_province.setGeometry(QtCore.QRect(110, 40, 121, 31))
         self.comboBox_province.setObjectName("comboBox_province")
+        self.textBrowser_result = QtWidgets.QTextBrowser(weather)
+        self.textBrowser_result.setGeometry(QtCore.QRect(40, 90, 421, 311))
+        self.textBrowser_result.setObjectName("textBrowser_result")
+
         self.retranslateUi(weather)
         self.pushButton_query.clicked.connect(weather.queryWeather)
         self.pushButton_clear.clicked.connect(weather.clearText)
-        self.comboBox_province.currentIndexChanged.connect(weather.onchange_city_comboBox)
+        self.comboBox_province.currentIndexChanged['int'].connect(weather.onchange_city_comboBox)
         QtCore.QMetaObject.connectSlotsByName(weather)
 
     def retranslateUi(self, weather):
